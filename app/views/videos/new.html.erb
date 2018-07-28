@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="video-container">
+    <h1>動画を投稿しよう！</h1>
+    <div class="video-new">
+      <%= form_tag('/videos/create', {multipart: true}) do %>
+        <input type="file" name="video">
+        <input type="submit" value="投稿">
+      <% end %>
+    </div>
+  </div>
+</div>

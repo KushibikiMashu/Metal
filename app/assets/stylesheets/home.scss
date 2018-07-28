@@ -1,0 +1,34 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-container {
+  padding: 180px 0 280px 0;
+  height: 720px;
+  background-image: url(http://localhost:3000/sports.jpg);
+  background-size: cover;
+}
+
+/* メイン */
+.main-container {
+  text-align: center;
+}
+
+.btn-wrapper {
+  padding: 40px;
+}
+
+.btn {
+  padding: 12px 28px;
+  color: white;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.signup {
+  background-color: rgba(219, 52, 88, 0.7);
+}
+
+.btn:hover {
+  opacity: 1;
+}

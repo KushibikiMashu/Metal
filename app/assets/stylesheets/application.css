@@ -13,3 +13,59 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.container {
+  width: 1024px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+header {
+  height: 60px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  top: 0px;
+  z-index: 10px;
+  border-bottom: 1px solid black;
+}
+
+.header-left {
+  float: left;
+  padding-top: 16px;
+}
+
+.header-right li{
+  padding-top: 16px;
+  width: 80px;
+  float: right;
+  list-style: none;
+  text-align: left;
+}
+
+/* フラッシュ */
+.flash {
+  padding-top: 80px;
+  width: 100%;
+  text-align: center;
+
+  background-color: ;
+  color: white;
+  background-color: rgba(219, 52, 88, 0.7);
+}
+
+

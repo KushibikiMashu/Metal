@@ -1,15 +1,43 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Metal</title>
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <title>Share Movies</title>
+     <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+   </head>
+ 
+   <body>
+     <header>
+       <div class="container" id="nav-bar">
+         <div class="header-left">
+           <%= link_to('Share Movies', '/') %>
+         </div>
+         <div class="header-right">
+           <ul>
+             <li><a href="/about">about</a></li>
+             <li><a href="#">新規登録</a></li>
+             <li><a href="#">ログイン</a></li>
+             <li><a href="/index">ホーム</a></li>
+             <li>
+               <%= link_to('投稿', '/videos/new') %>
+             </li>
+           </ul>
+         </div>
+       </div>
+     </header>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+     
+     <%= yield %>
+ 
+   </body>
+ </html>
+ 
