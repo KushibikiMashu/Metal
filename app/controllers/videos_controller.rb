@@ -16,7 +16,7 @@ class VideosController < ApplicationController
 
     if video === nil
       flash[:notice] = "動画が選択されていません"
-      render("videos/new")
+      render :new
       return
     end
 
@@ -26,7 +26,7 @@ class VideosController < ApplicationController
       redirect_to("/index")
     else
       flash[:notice] = "動画の保存に失敗しました。再度投稿をお願いします"
-      render("videos/new")
+      render :new
     end
 
     # グループ機能を開発した後に利用するコード
@@ -47,5 +47,15 @@ class VideosController < ApplicationController
     # 公開、非公開でディレクトリを分ける
     # File.binwrite("public/(public/, private/)#{@video.group_id}/#{@video.id}.mp4", video.read)
 
+  end
+
+  def destroy
+    @video = Video.find_by(id: params[:id])
+
+    if @video.destroy
+      FileUtils.rm_f("public/test_video/#{@video.id}.mp4")
+      flash[:notice] = "動画を削除しました"
+      redirect_to("/index")
+    end
   end
 end

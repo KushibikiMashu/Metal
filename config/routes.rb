@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "videos/new" => "videos#new"
   post "videos/create" => "videos#create"
   get "videos/create" => "videos#new"
+  post "videos/:id/destroy" => "videos#destroy"
+  get "videos/:id/destroy" => "videos#index"
+
 
   # homeコントローラー
   get "/" => "home#top"
