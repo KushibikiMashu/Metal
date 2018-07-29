@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-container {
-  padding: 180px 0 280px 0;
-  height: 720px;
+  padding-top: 180px;
+  padding-bottom: 60px;
+  height: 1000px;
   background-image: url(http://localhost:3000/sports.jpg);
   background-size: cover;
 }

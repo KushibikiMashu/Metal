@@ -1,13 +1,12 @@
 <div class="container">
-	<div class="user_new">
+	<div class="users-container">
       <%= form_tag("/users/create") do %>
         <p>ユーザー名</p>
         <input type="text" name="name">
         <p>パスワード</p>
         <input type="password" name="password">
-	    <!-- <p>メールアドレス</p> -->
-        <!-- <input type="text" name="email"> -->
-        <input type="hidden" name="email">
+	      <p>メールアドレス</p>
+        <input type="text" name="email">
         <input type="submit" value="投稿">
       <% end %>
 	</div>

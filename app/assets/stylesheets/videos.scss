@@ -2,14 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container {
-  padding: 100px 0 280px 0;
-  width: 1024px;
-  padding: 0 30px;
-  margin: 0 auto;
+.videos-container {
+  padding-top: 120px;
+  padding-bottom: 60px;
 }
 
-.video-container {
-  padding: 180px 0 280px 0;
-  text-align: center;
+.videos-new {
+	text-align: center;
 }

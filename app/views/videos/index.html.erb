@@ -1,1 +1,24 @@
-<!-- 選択された動画を表示 -->
+<div class="container">
+	<div class="videos-container">
+		<% if @videos %>
+			<div class="no-videos">
+				<p>動画を投稿しましょう！</p>
+			</div>
+		<% end %>
+		<!-- ループ文で動画を表示 -->
+		<% @videos.each do |video| %>
+		<div class="content">
+			<div class="video-info">
+				<p id="video-title">動画</p>
+				<video width="600px" height="400px" controls>
+					<source src="<%= "/test_video/#{video.id}.mp4" %>" type="video/mp4">
+				</video>
+				<p id="video-owner">投稿者: <%= video.user_id %> </p>
+				<p id="video-date">投稿日:  <%= simple_time(video.created_at) %></p>
+			</div>
+			<p id="video-comment">コメント</p>
+		</div>
+		<% end %>
+	</div>
+	<a href="/">TOP</a>
+</div>
