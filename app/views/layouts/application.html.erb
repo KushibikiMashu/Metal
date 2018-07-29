@@ -18,9 +18,15 @@
          </div>
          <div class="header-right">
            <ul>
+            <!-- ログイン前 -->
              <li><a href="/about">about</a></li>
              <li><a href="/new">新規登録</a></li>
+
+            <!-- ログイン状態 -->
              <li><a href="/login_form">ログイン</a></li>
+             <li>
+              <%= link_to("ログアウト", "/logout", {method: :post}) %>
+             </li>
              <li><a href="/index">ホーム</a></li>
              <li>
                <%= link_to('投稿', '/videos/new') %>
