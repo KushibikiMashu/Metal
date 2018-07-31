@@ -71,6 +71,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 
 # SASSの導入
-gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.1'
+gem 'material-sass', '~> 4.1.1'
 
