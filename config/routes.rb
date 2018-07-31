@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   get "login" => "users#login_form"
   post "logout" => "users#logout"
+  get "users/index" => "users#index"
 
   # videosコントローラー
   get "index" => "videos#index"

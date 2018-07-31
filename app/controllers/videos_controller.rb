@@ -21,6 +21,8 @@ class VideosController < ApplicationController
     end
 
     if @video.save
+      # TODO mp4以外の動画がアップされた時の対応をする
+      # TODO VideoのPathをDBに登録する
       File.binwrite("public/test_video/#{@video.id}.mp4", video.read)
       flash[:notice] = "投稿に成功しました"
       redirect_to("/index")
