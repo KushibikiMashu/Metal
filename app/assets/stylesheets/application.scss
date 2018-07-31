@@ -24,17 +24,13 @@ body {
 
     /* navバー */
     nav {
-        margin: 0 auto;
 
         .nav-wrapper {
+          margin: 0 auto;
+          max-width: 980px;
           width: 100%;
+          
         }
-
-        // .nav-wrapper {
-        //   width: 980px;
-        //   display: ;
-        // }
-        // 
     }
 
     /* ヘッダー */
@@ -46,7 +42,7 @@ body {
     }
 
     /* フラッシュ */
-    .flash {
+    .flash, .form-error{
         height: 48px;
         width: 100%;
         text-align: center;

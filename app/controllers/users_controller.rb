@@ -6,6 +6,14 @@ class UsersController < ApplicationController
   end
 
   def create
+
+    if params[:password] != params[:check_password]
+      @error_message = "パスワードが一致していません"
+      @email = params[:email]
+      render :new
+      return
+    end
+
     @user = User.new(
     	name: params[:name],
     	password: params[:password],
@@ -26,10 +34,12 @@ class UsersController < ApplicationController
   end
   
   def login
+
     @user = User.find_by(
       email: params[:email],
       password: params[:password]
       )
+
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
@@ -37,7 +47,6 @@ class UsersController < ApplicationController
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
-      @password = params[:password]
       render("login_form")
     end
   end
