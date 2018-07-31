@@ -13,46 +13,51 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Navbar</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- ログイン前 -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">about</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login_form">ログイン</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/new">新規登録</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/index">テスト画面</a>
-                </li>
-            </ul>
-            <!-- ログイン後 -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/index">ホーム</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/videos/new">投稿</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout" data-method="post">ログアウト</a>
-                </li>
-            </ul>
+        <div class="nav-wrapper d-flex">
+            <a class="navbar-brand" href="/">Navbar</a>
+            <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
+                <!-- ログイン前 -->
+                <% if !@current_user %>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login_form">ログイン</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/new">新規登録</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/index">テスト画面</a>
+                        </li>
+                    </ul>
+                    <!-- ログイン後 -->
+                    <% else %>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index">ホーム</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/videos/new">投稿</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout" data-method="post">ログアウト</a>
+                            </li>
+                        </ul>
+                        <% end %>
+            </div>
         </div>
     </nav>
-    <div class="main-container">
-        <!-- メッセージ -->
-        <% if flash[:notice] %>
-            <div class="flash">
-                <%= flash[:notice] %>
-            </div>
-            <% end %>
+    <!-- メッセージ -->
+    <% if flash[:notice] %>
+        <div class="flash">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+            <div class="main-container">
                 <%= yield %>
-    </div>
+            </div>
 </body>
 
 </html>
