@@ -19,42 +19,31 @@
 @import "material";
 
 body {
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN";
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN";
 
-  /* ヘッダー */
+    /* navバー */
+    nav {
+        margin: 0 auto;
+    }
 
-  .container {
-    width: 1024px;
-    padding: 0 30px;
-    margin: 0 auto;
-  }
+    /* ヘッダー */
+    .main-container {
+        height: 1000px;
+        width: 980px;
+        padding: 0 30px;
+        margin: 0 auto;
+    }
 
+    /* フラッシュ */
+    .flash {
+        height: 48px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        background-color: rgba(219, 52, 88, 1);
+        z-index: 100;
+    }
 
-  /* フラッシュ */
-  .flash {
-   height: 48px;
-   width: 100%;
-   text-align: center;
-   color: white;
-   background-color: rgba(219, 52, 88, 1);
-   z-index: 100;
-   position: relative;
-  }
-
-  .main-container {
-    padding-top: 180px;
-    padding-bottom: 60px;
-    height: 1000px;
-    background-image: url(http://localhost:3000/sports.jpg);
-    background-size: cover;
-  }
-
+    .container {}
 }
-
-
-
-
-
-
-
