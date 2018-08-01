@@ -1,4 +1,5 @@
-class GroupController < ApplicationController
+class GroupsController < ApplicationController
+
   def index
   end
 
@@ -10,7 +11,7 @@ class GroupController < ApplicationController
 
   	if @name == nil
   		flash[:notice] = "グループ名が入力されていません"
-	  	render("group/new")
+	  	render("groups/new")
   	end
 
     @group = Group.new(
@@ -30,7 +31,7 @@ class GroupController < ApplicationController
 	  	redirect_to("/index")
 	  else
   		flash[:notice] = "グループの作成に失敗しました"
-	  	render("group/new")
+	  	render("groups/new")
   	end
   end
 

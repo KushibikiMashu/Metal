@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'group/index'
+  get 'groups/index'
   # usersコントローラー
   get "new" => "users#new"
   post "users/create" => "users#create"
@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   get "videos/:id/destroy" => "videos#index"
 
   # groupコントローラー
-  get "groups" => "group#index"
-  get "groups/new" => "group#new"
-  post "groups/create" => "group/create"
-  get "groups/create" => "group/create"
+  get "groups" => "groups#index"
+  get "groups/new" => "groups#new"
+  post "groups/create" => "groups#create"
+  get "groups/create" => "groups#new"
 
   # homeコントローラー
   get "/" => "home#top"
