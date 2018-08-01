@@ -13,7 +13,7 @@
 				<video width="600px" height="400px" controls>
 					<source src="<%= "/test_video/#{video.id}.mp4" %>" type="video/mp4">
 				</video>
-				<p id="video-owner">投稿者: <%= video.user.name %> </p>
+				<p id="video-owner">投稿者: <%= video.user.user_name %> </p>
 				<p id="video-date">投稿日: <%= simple_time(video.created_at) %></p>
 				<p> <%= link_to("削除", "/videos/#{video.id}/destroy", {method: "post"}) %></p>
 			</div>

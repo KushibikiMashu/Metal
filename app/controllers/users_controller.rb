@@ -15,9 +15,10 @@ class UsersController < ApplicationController
     end
 
     @user = User.new(
-    	name: params[:name],
+    	user_name: params[:name],
     	password: params[:password],
-    	email: params[:email]
+    	email: params[:email],
+      image_path: "default.jpg"
     	)
 
     if @user.save

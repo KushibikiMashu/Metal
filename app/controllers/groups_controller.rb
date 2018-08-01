@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
 
   def index
+    @groupMembers = GroupMember.where(user_id: @current_user.id).order(created_at: :desc)
+    # binding.pry
   end
 
   def new
@@ -15,16 +17,20 @@ class GroupsController < ApplicationController
   	end
 
     @group = Group.new(
-      name: @name
+      group_name: @name
       )
 
   	if @group.save
 
       # グループメンバーテーブルにデータを保存
+      @group_member = GroupMember.new(
+          group_id: @group.id,
+          user_id: @current_user.id
+        )
+      @group_member.save
 
       # ユーザーテーブルにデータを保存
       @user = User.find_by(id: @current_user)
-      @user.group_id = @group.id
       @user.save
 
   		flash[:notice] = "グループが作成されました"
@@ -33,6 +39,10 @@ class GroupsController < ApplicationController
   		flash[:notice] = "グループの作成に失敗しました"
 	  	render("groups/new")
   	end
+  end
+
+  def show
+
   end
 
 end

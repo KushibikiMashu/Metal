@@ -1,3 +1,4 @@
 class Group < ApplicationRecord
-	validates :name, {presence: true}
+	validates :group_name, {presence: true}
+
 end
