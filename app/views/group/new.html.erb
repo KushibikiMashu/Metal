@@ -1,0 +1,10 @@
+<h1>Group#index</h1>
+<h2>下はタブにする</h2>
+
+<%= form_tag("/groups/create") do %>
+  <p>グループ名</p>
+  <input type="text" name="name" value="<%= @name %>">
+  <p>タグ</p>
+  <input type="text" name="tag">
+  <input type="submit" value="投稿">
+<% end %>
