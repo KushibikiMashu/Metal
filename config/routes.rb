@@ -21,9 +21,12 @@ Rails.application.routes.draw do
 
   # groupコントローラー
   get "groups" => "groups#index"
+  get "groups/index" => "groups#index"
   get "groups/new" => "groups#new"
   post "groups/create" => "groups#create"
   get "groups/create" => "groups#new"
+  post "groups/search" => "groups#search"
+  get "groups/search" => "groups#search"
 
   # homeコントローラー
   get "/" => "home#top"

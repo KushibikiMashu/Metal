@@ -9,7 +9,12 @@
 	<button>グループ作成</button>
 </a>
 
-<% @groupUsers.each do |groupUser| %>
-	<p>グループ名: <%= groupUser.fetch_group.group_name %></p
+<%= form_tag("/groups/search") do %>
+	<input type="search" name="search">
+	<input type="submit">
+<% end %>
 
+<% @results.each do |result| %>
+	<%= result.group_name %>
+	<br>
 <% end %>
