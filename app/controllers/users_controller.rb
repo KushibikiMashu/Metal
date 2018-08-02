@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     	redirect_to("/index")
     else
     	flash[:notice] = "ユーザー登録に失敗しました"
-    	render("new")
+    	render :new
     end
   end
 
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
-    redirect_to("/login_form")
+    render :login_form
   end
 
 end

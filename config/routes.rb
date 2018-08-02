@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'groups/index'
   # usersコントローラー
   get "new" => "users#new"
   post "users/create" => "users#create"
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   get "login" => "users#login_form"
   post "logout" => "users#logout"
-  get "logout" => "users#index"
+  get "logout" => "users#login_form"
   get "users/index" => "users#index"
 
   # videosコントローラー
