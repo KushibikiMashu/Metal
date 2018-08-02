@@ -6,7 +6,7 @@
 	<button>グループ作成</button>
 </a>
 
-<% @groupMembers.each do |groupMember| %>
-	<p>グループ名: <%= groupMember.fetch_group.group_name %></p
+<% @groupUsers.each do |groupUser| %>
+	<p>グループ名: <%= groupUser.fetch_group.group_name %></p
 
 <% end %>
