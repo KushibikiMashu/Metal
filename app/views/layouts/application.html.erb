@@ -54,17 +54,17 @@
         <div class="flash">
             <%= flash[:notice] %>
         </div>
-    <% end %>
-
-    <!-- エラーメッセージ -->
-    <% if @error_message %>
-      <div class="form-error">
-        <%= @error_message %>
-      </div>
-    <% end %>
-            <div class="main-container">
-                <%= yield %>
-            </div>
+        <% end %>
+            <!-- エラーメッセージ -->
+            <% if @error_message %>
+                <div class="form-error">
+                    <%= @error_message %>
+                </div>
+                <% end %>
+                <div class="space"></div>
+                    <div class="main-container">
+                        <%= yield %>
+                    </div>
 </body>
 
 </html>
