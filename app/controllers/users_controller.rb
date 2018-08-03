@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      flash[:notice] = "ログインしました"
+      flash[:notice] = "ログインしました" 
       redirect_to("/index")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
@@ -53,6 +53,7 @@ class UsersController < ApplicationController
   end
   
   def logout
+    remove_instance_variable(:@current_user)
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     render :login_form
