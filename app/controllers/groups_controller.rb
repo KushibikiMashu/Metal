@@ -8,10 +8,10 @@ class GroupsController < ApplicationController
   end
 
   def create
-  	@name = params[:name]
+  	@group_name = params[:group_name]
 
     @group = Group.new(
-      group_name: @name
+      group_name: @group_name
       )
 
   	if @group.save
