@@ -10,11 +10,6 @@ class GroupsController < ApplicationController
   def create
   	@name = params[:name]
 
-  	if @name == nil
-  		flash[:notice] = "グループ名が入力されていません"
-	  	render("groups/new")
-  	end
-
     @group = Group.new(
       group_name: @name
       )
@@ -36,7 +31,7 @@ class GroupsController < ApplicationController
       redirect_to("/groups")
 	  else
   		flash[:notice] = "グループの作成に失敗しました"
-	  	render("groups/new")
+      redirect_to("/groups/new")
   	end
   end
 

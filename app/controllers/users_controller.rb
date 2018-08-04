@@ -18,8 +18,6 @@ class UsersController < ApplicationController
     	flash[:notice] = "ユーザー登録が完了しました"
     	redirect_to("/index")
     else
-      @user_name = params[:user_name]
-      @email = params[:email]
     	flash[:notice] = "ユーザー登録に失敗しました"
     	render :new
     end
@@ -36,15 +34,12 @@ class UsersController < ApplicationController
       password: params[:password]
       )
 
-      # binding.pry
-
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました" 
       redirect_to("/index")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
-      @email = params[:email]
       render("login_form")
     end
   end
