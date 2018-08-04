@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="mb-2 mx-auto">
+        <div class="col-lg-6 col-lg-6 col-md-8 mb-2 mx-auto">
 <h2>下はタブにする</h2>
 <a href="/groups/index">
   <button>参加グループ</button>
@@ -16,6 +16,11 @@
 	<input type="search" name="search">
 	<input type="submit">
 <% end %>
+
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
 
 <% @results.each do |result| %>
 	<%= result.group_name %>
