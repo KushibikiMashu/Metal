@@ -11,14 +11,10 @@
             <a href="/groups/new">
                 <button>グループ作成</button>
             </a>
-            <%= form_tag("/groups/create") do %>
-                <div class="form-row floating-label textfield-box">
-                    <div class="col-lg-6 col-lg-6 col-md-8 mb-2 mr-auto mt-2">
-                        <label>グループ名</label>
-                        <input type="text" class="form-control" name="group_name" value="<%= @name %>" required>
-                        <button class="btn btn-light mt-3" type="submit">作成する</button>
-                    </div>
-                </div>
+            <%= form_tag("/groups/create", class: "form-inline my-2 my-lg-0 floating-label") do %>
+                <label>グループ名</label>
+                <input class="form-control mr-sm-2" type="text" class="form-control" name="group_name" aria-label="Search">
+                <button class="btn btn-light my-2 my-sm-0" type="submit">作成する</button>                
             <% end %>
         </div>
     </div>
