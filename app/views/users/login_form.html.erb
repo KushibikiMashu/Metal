@@ -1,12 +1,33 @@
 <div class="container">
-	<div class="users-container">
+    <div class="form-row">
+        <div class="col-md-8 mb-2 mx-auto">
+            <h3>Emailでログインする</h3>
+        </div>
+    </div>
 
-	  <%= form_tag("/login") do %>
-	    <p>メールアドレス</p>
-        <input type="text" name="email" value="<%= @email %>">
-        <p>パスワード</p>
-        <input type="password" name="password">
-        <input type="submit" value="投稿">
-      <% end %>
-	</div>
+    <%= form_tag("/login") do %>
+        <div class="form-row">
+            <div class="col-md-8 mb-2 mx-auto mt-2">
+                <label for="validationDefault01">Email</label>
+                <input type="text" class="form-control" id="validationDefault01" name="email" placeholder="" value="<%= @email %>" style="background-color: rgb(250, 255, 189)" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-8 mb-2 mx-auto mt-2">
+                <label for="validationDefault03">Password</label>
+                <input type="password" class="form-control" id="validationDefault03" name="password" placeholder="" style="background-color: rgb(250, 255, 189)" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-8 mb-2 mt-2 mx-auto">
+                <button class="btn btn-light ml-auto" type="submit">ログイン</button>
+            </div>
+        </div>
+    <% end %>
+        <div class="form-row">
+            <div class="col-md-8 mb-2 mt-2 mx-auto">
+                パスワードを忘れた場合<a href="#">ここ</a>をクリック
+            </div>
+        </div>
+
 </div>

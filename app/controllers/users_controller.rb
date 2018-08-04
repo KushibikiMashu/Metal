@@ -6,18 +6,10 @@ class UsersController < ApplicationController
   end
 
   def create
-
-    if params[:password] != params[:check_password]
-      @error_message = "パスワードが一致していません"
-      @email = params[:email]
-      render :new
-      return
-    end
-
     @user = User.new(
-    	user_name: params[:name],
-    	password: params[:password],
+    	user_name: params[:user_name],
     	email: params[:email],
+      password: params[:password],
       image_path: "default.jpg"
     	)
 
@@ -26,6 +18,8 @@ class UsersController < ApplicationController
     	flash[:notice] = "ユーザー登録が完了しました"
     	redirect_to("/index")
     else
+      @user_name = params[:user_name]
+      @email = params[:email]
     	flash[:notice] = "ユーザー登録に失敗しました"
     	render :new
     end
@@ -35,11 +29,14 @@ class UsersController < ApplicationController
   end
   
   def login
+    flash[:notice] = nil
 
     @user = User.find_by(
       email: params[:email],
       password: params[:password]
       )
+
+      # binding.pry
 
     if @user
       session[:user_id] = @user.id
