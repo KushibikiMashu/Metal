@@ -25,22 +25,12 @@ body {
     /* navバー */
     nav {
 
-        .nav-wrapper {
-          margin: 0 auto;
-          max-width: 750px;
-          width: 100%;
-          
-        }
-    }
-
-    .space {
-        margin-top: 20px;
     }
 
     /* メイン */
     .main-container {
-        max-width: 750px;
-        width: 100%;
+        // max-width: 750px;
+        // width: 100%;
         padding: 0 25px;
         margin: 0 auto;
     }
@@ -48,12 +38,10 @@ body {
     /* フラッシュ */
     .flash, .form-error{
         height: 48px;
-        width: 100%;
+        // width: 100%;
         text-align: center;
         color: white;
         background-color: rgba(219, 52, 88, 1);
         z-index: 100;
     }
-
-    .container {}
 }
