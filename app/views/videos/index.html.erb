@@ -19,7 +19,7 @@
 				</video>
 				<p id="video-owner">投稿者: <%= video.user.user_name %> </p>
 				<p id="video-date">投稿日: <%= simple_time(video.created_at) %></p>
-				<p> <%= link_to("削除", "/videos/#{video.id}/destroy", {method: "post"}) %></p>
+				<p> <%= link_to("削除", "/videos/#{video.id}/destroy", method: :post, data: {confirm: '本当に動画を削除しますか?'}) %></p>
 			</div>
 			<p id="video-comment">コメント</p>
 		</div>
