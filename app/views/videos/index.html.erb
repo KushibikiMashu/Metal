@@ -1,47 +1,36 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-6 col-md-8 mb-2 mx-auto">
-
-<div class="container">
-	<div class="videos-container">
-		<% if @videos %>
-			<div class="no-videos">
-				<p>動画を投稿しましょう！</p>
-			</div>
-		<% end %>
-		<!-- ループ文で動画を表示 -->
-		<% @videos.each do |video| %>
-		<div class="content">
-			<div class="video-info">
-				<p id="video-title">動画</p>
-				<video width="600px" height="400px" controls>
-					<source src="<%= "/test_video/#{video.id}.mp4" %>" type="video/mp4">
-				</video>
-				<p id="video-owner">投稿者: <%= video.user.user_name %> </p>
-				<p id="video-date">投稿日: <%= simple_time(video.created_at) %></p>
-				<p> <%= link_to("削除", "/videos/#{video.id}/destroy", method: :post, data: {confirm: '本当に動画を削除しますか?'}) %></p>
-			</div>
-			<p id="video-comment">コメント</p>
-		</div>
-		<% end %>
-	</div>
-</div>
-
-</div>
-</div>
-</div>
-
-<!-- <div class="container">
-    <div class="form-row">
-        <div class="col-lg-6 col-md-8 mb-2 mx-auto">
-            <h3>Emailでログインする</h3>
-        </div>
-    </div>
-
-        <div class="form-row">
-            <div class="col-lg-6 col-md-8 mb-2 mx-auto mt-2">
-                <label for="validationDefault01">Email</label>
-                <input type="text" class="form-control" name="email" placeholder="" value="<%= @email %>" style="background-color: rgb(250, 255, 189)" required>
+            <div class="container">
+                <div class="videos-container">
+                    <% if @videos %>
+                        <div class="no-videos">
+                            <p>動画を投稿しましょう！</p>
+                        </div>
+                    <% end %>
+                    <!-- ループ文で動画を表示 -->
+                    <% @videos.each do |video| %>
+                        <div class="content">
+                            <div class="video-info">
+                                <p id="video-title">動画</p>
+                                <video width="600px" height="400px" controls>
+                                    <source src="<%= " /test_video/#{video.id}.mp4 " %>" type="video/mp4">
+                                </video>
+                                <p id="video-owner">投稿者:
+                                    <%= video.user.user_name %>
+                                </p>
+                                <p id="video-date">投稿日:
+                                    <%= simple_time(video.created_at) %>
+                                </p>
+                                <p>
+                                    <%= link_to("削除", "/videos/#{video.id}/destroy", method: :post, data: {confirm: "本当に削除しますか？"}) %>
+                                </p>
+                            </div>
+                            <p id="video-comment">コメント</p>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
-</div> -->
+    </div>
+</div>
