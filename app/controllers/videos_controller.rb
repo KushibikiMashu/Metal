@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+  include ApplicationHelper
+
   def index
     @videos = Video.all.order(created_at: :desc)
   end
@@ -11,7 +13,8 @@ class VideosController < ApplicationController
 
     # TODO group_idを追加
     @video = Video.new(
-      user_id: @current_user.id
+      user_id: @current_user.id,
+      color: set_random_color
       )
 
     if video === nil

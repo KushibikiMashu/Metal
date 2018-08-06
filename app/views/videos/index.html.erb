@@ -4,7 +4,7 @@
             <!-- ループ文で動画を表示 -->
             <% @videos.each do |video| %>
                 <!-- card -->
-                <div class="card mb-4">
+                <div class="card border-<%= video.color %> mb-4">
                     <!-- card-header -->
                     <div class="card-header">
                         <ul class="nav nav-pills card-header-pills">
@@ -31,7 +31,7 @@
                             <!-- card-dropdown -->
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-<%= video.color %>">
                         <!-- card-body -->
                         <p>
                             <p class="card-text">どんな動画か説明します</p>
