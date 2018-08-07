@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  include ApplicationHelper
 
   def index
     @groupUsers = GroupUser.where(user_id: @current_user.id).order(created_at: :desc)
@@ -26,6 +27,11 @@ class GroupsController < ApplicationController
       # ユーザーテーブルにデータを保存
       @user = User.find_by(id: @current_user)
       @user.save
+
+      @created_at = timestamp_to_number(@group.created_at)
+      if !Dir.exist?("public/" + @created_at)
+        Dir.mkdir("public/" + @created_at)
+      end
 
   		flash[:notice] = "グループが作成されました"
       redirect_to("/groups")

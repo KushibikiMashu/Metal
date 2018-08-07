@@ -1,16 +1,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-6 col-md-8 mb-2 mx-auto">
-            <h2>下はタブにする</h2>
-            <a href="/groups/index">
-                <button>参加グループ</button>
-            </a>
-            <a href="/groups/search">
-                <button>グループ検索</button>
-            </a>
-            <a href="/groups/new">
-                <button>グループ作成</button>
-            </a>
+
+<ul class="nav nav-justified nav-tabs" id="justifiedTab" role="tablist">
+  <li class="nav-item">
+    <a aria-controls="index" aria-selected="true" class="nav-link" href="/groups/index" id="index-tab" role="tab">一覧</a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="search" aria-selected="false" class="nav-link" href="/groups/search" id="search-tab" role="tab">検索</a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="new" aria-selected="false" class="nav-link active" href="/groups/new" id="new-tab" role="tab">作成</a>
+  </li>
+</ul>
+
             <%= form_tag("/groups/create", class: "form-inline my-2 my-lg-0 floating-label") do %>
                 <label>グループ名</label>
                 <input class="form-control mr-sm-2" type="text" class="form-control" name="group_name" aria-label="Search">
