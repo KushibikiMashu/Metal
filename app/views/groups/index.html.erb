@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-6 col-md-8 mb-2 mx-auto">
+
+<h2>下はタブにする</h2>
+<a href="/groups/index">
+  <button>参加グループ</button>
+</a>
+<a href="/groups/search">
+  <button>グループ検索</button>
+</a>
+<a href="/groups/new">
+	<button>グループ作成</button>
+</a>
+
+<% @groupUsers.each do |groupUser| %>
+	<p>グループ名: <%= groupUser.fetch_group.group_name %></p>
+
+<% end %>
+
+</div>
+</div>
+</div>

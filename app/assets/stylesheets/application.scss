@@ -1,0 +1,42 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "home";
+@import "users";
+@import "videos";
+
+@import "material";
+
+body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN";
+
+    .input-yellow {
+        background-color: rgb(250, 255, 189) !important;
+    }
+    
+    /* navバー */
+    nav {
+
+    }
+
+    /* フラッシュ */
+    .flash, .form-error{
+        height: 48px;
+        text-align: center;
+        color: white;
+        background-color: rgba(219, 52, 88, 1);
+        z-index: 100;
+    }
+}

@@ -14,3 +14,18 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require popper
+//= require bootstrap
+//= require material
+
+$(document).on('turbolinks:load', function() {
+
+	// HTML5のfile APIを利用し、アップロードされたファイル名を取得
+	$('#file').on('change', function() {
+		var files = this.files;
+		var filename = files[0].name;
+		$('#filename').val(filename);
+	});
+
+});

@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-6 col-md-8 mb-2 mx-auto">
+            <!-- ループ文で動画を表示 -->
+            <% @videos.each do |video| %>
+                <!-- card -->
+                <div class="card border-<%= video.color %> mb-4">
+                    <!-- card-header -->
+                    <div class="card-header bg-<%= video.color %> text-white">
+                        <ul class="nav nav-pills card-header-pills">
+                            <!-- <img>を追加 -->
+                            <li class="nav-item w-75 ml-2 my-auto">
+                                投稿者:
+                                <!-- 「投稿者:」は削除する-->
+                                <%= video.user.user_name %>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        menu
+                                        <!-- (TODO ３つの点にする) -->
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button">削除</button>
+                                        <button class="dropdown-item" type="button">報告</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="card-header-info">
+                            <!-- card-dropdown -->
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- card-body -->
+                        <p>
+                            <p class="card-text">どんな動画か説明します</p>
+                            <p class="card-text"><small class="text-muted">1時間前</small></p>
+                    </div>
+                    <video class="card-img-bottom mx-auto" alt="Card image cap" style="width: 99.8%" controls>
+                        <source src="<%= " /test_video/#{video.id}.mp4 " %>" type="video/mp4">
+                    </video>
+                    コメント
+                    <%= link_to("削除", "/videos/#{video.id}/destroy", method: :post, data: {confirm: "本当に削除しますか？"}, class: "ml-auto mt-3 mb-3 mr-3") %>
+                </div>
+                <% end %>
+        </div>
+    </div>
+</div>
