@@ -14,9 +14,9 @@
 </a>
 
 <% @groupUsers.each do |groupUser| %>
-	<p>グループ名: <%= groupUser.fetch_group.group_name %></p>
+	<div class="mx-0" style="width: 100px">グループ名: <%= groupUser.fetch_group.group_name %></div>
 
-<%= form_tag("#", class: "ml-5") do %>
+<%= form_tag("#", class: "ml-auto") do %>
     <button class="btn btn-info" type="submit">申請中</button>
     <% end %>
 <%= form_tag("#", class: "ml-5") do %>
