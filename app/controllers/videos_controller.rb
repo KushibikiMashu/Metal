@@ -6,7 +6,7 @@ class VideosController < ApplicationController
   end
 
   def new
-    @groupUsers = GroupUser.where(user_id: @current_user)
+    @groupUsers = GroupUser.where(user_id: @current_user.id)
   end
 
   def create
@@ -16,7 +16,7 @@ class VideosController < ApplicationController
     # バリデーションをかける
     if video == nil || @group_id == "未選択"
       flash[:notice] = "動画またはグループが選択されていません"
-      @groupUsers = GroupUser.where(user_id: @current_user)
+      @groupUsers = GroupUser.where(user_id: @current_user.id)
       render :new
       return
     end

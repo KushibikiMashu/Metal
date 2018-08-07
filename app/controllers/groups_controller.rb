@@ -11,11 +11,11 @@ class GroupsController < ApplicationController
   	@group_name = params[:group_name]
 
     @group = Group.new(
-      group_name: @group_name
+      group_name: @group_name,
+      admin_user_id: @current_user.id
       )
 
   	if @group.save
-
       # グループメンバーテーブルにデータを保存
       @group_user = GroupUser.new(
           group_id: @group.id,
