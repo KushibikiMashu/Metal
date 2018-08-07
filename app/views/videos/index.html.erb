@@ -38,7 +38,7 @@
                             <p class="card-text"><small class="text-muted">1時間前</small></p>
                     </div>
                     <video class="card-img-bottom mx-auto" alt="Card image cap" style="width: 99.8%" controls>
-                        <source src="<%= " /test_video/#{video.id}.mp4 " %>" type="video/mp4">
+                        <source src="<%= video.video_path %>" type="video/mp4">
                     </video>
                     コメント
                     <%= link_to("削除", "/videos/#{video.id}/destroy", method: :post, data: {confirm: "本当に削除しますか？"}, class: "ml-auto mt-3 mb-3 mr-3") %>

@@ -30,4 +30,4 @@
 /config/master.key
 
 # Ignore videos
-/public/test_video/*.mp4
+/public/*

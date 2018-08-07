@@ -28,7 +28,6 @@ class VideosController < ApplicationController
           group_id: @group_id,
           color: set_random_color
           )
-
         @video.save!
 
         # ディレクトリを作成
@@ -41,7 +40,6 @@ class VideosController < ApplicationController
         # videoのパスを作成
         @video_path = "/#{@group_created_at}/#{@video.id}.mp4"
         @video.video_path = @video_path
-
         @video.save!
     end
         # save!に成功した場合の処理
@@ -49,6 +47,7 @@ class VideosController < ApplicationController
         flash[:notice] = "投稿に成功しました"
         redirect_to("/index")
   rescue => e
+        # save!に失敗した場合の処理
         flash[:notice] = "動画の保存に失敗しました。再度投稿をお願いします"
         render :new
   end
@@ -57,7 +56,7 @@ class VideosController < ApplicationController
     @video = Video.find_by(id: params[:id])
 
     if @video.destroy
-      FileUtils.rm_f("public/test_video/#{@video.id}.mp4")
+      FileUtils.rm_f("public#{@video.video_path}")
       flash[:notice] = "動画を削除しました"
       redirect_to("/index")
     end
