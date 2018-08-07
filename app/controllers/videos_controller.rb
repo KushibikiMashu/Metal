@@ -2,17 +2,8 @@ class VideosController < ApplicationController
   include ApplicationHelper
 
   def index
-    # 自分の所属しているグループのVideoを全て取得
-    # TODO 配列の中に配列が入っていることを修正するvideos[[object]] → videos[object]
-    # TODO 自分の所属するグループの動画が取得できない
-    @videos = []
-    @groups_belong_to = GroupUser.where(user_id: @current_user.id)
-    @groups_belong_to.each do |group_belong_to|
-      @videos << group_belong_to.fetch_groups_of_user
-    end
-    
     # 動画を降順で並び替え
-    @videos = @videos[0].order(created_at: :desc)
+    @videos = Video.all.order(created_at: :desc)
   end
 
   def new
