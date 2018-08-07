@@ -3,7 +3,14 @@ class VideosController < ApplicationController
 
   def index
     # 動画を降順で並び替え
-    @videos = Video.all.order(created_at: :desc)
+    # TODO グループごとに表示する動画を取得
+    @videos = []
+    @groups_belong_to = GroupUser.where(user_id: @current_user.id)
+    # ここまでOK
+    @groups_belong_to.each do |group_belong_to|
+      @videos = Video.where(group_id: group_belong_to.group_id)
+    end
+
   end
 
   def new
