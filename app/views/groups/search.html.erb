@@ -14,12 +14,23 @@
             <%= form_tag("/groups/search", class: "form-inline my-2 my-lg-0 floating-label") do %>
                 <label>グループ名</label>
                 <input class="form-control mr-sm-2" type="search" name="search" aria-label="Search">
-                <button class="btn btn-light my-2 my-sm-0" type="submit">検索する </button>
-            <% end %>
-            <% @results.each do |result| %>
-                <%= result.group_name %>
-                <br>
-            <% end %>
+                <button class="btn btn-light my-2 my-sm-0" type="submit">検索する</button>
+                <% end %>
+                    <div>
+                        <% @results.each do |result| %>
+                            <div>
+                                <div>
+                                    <%= result.group_name %>
+                                </div>
+                                <div>
+                                    <%= form_tag("#", class: "ml-5") do %>
+                                        <button class="btn btn-info" type="submit">申請する</button>
+                                        <% end %>
+                                </div>
+                            </div>
+                            <br>
+                            <% end %>
+                    </div>
         </div>
     </div>
 </div>
