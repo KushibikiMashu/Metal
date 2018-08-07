@@ -16,15 +16,15 @@
 <% @groupUsers.each do |groupUser| %>
 	<p>グループ名: <%= groupUser.fetch_group.group_name %></p>
 
-<%= form_tag("", class: "ml-5") do %>
+<%= form_tag("#", class: "ml-5") do %>
     <button class="btn btn-info" type="submit">申請中</button>
     <% end %>
-<%= form_tag("", class: "ml-5") do %>
+<%= form_tag("#", class: "ml-5") do %>
 <button class="btn btn-info" type="submit">参加中</button>
 <% end %>
 
-<%= form_tag("", class: "ml-5") do %>
-<button class="btn btn-info" type="submit">グループを抜ける</button>
+<%= form_tag("#", class: "ml-5") do %>
+<button class="btn btn-info" type="submit">退会する</button>
 <% end %>
 
 <% end %>
