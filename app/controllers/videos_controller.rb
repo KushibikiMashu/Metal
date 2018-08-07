@@ -33,7 +33,7 @@ class VideosController < ApplicationController
       @group_created_at = Group.find_by(id: @group_id).created_at
       @group_created_at = timestamp_to_number(@group_created_at)
 
-      # @group_created_atの名前のディレクトリを作成する
+      # TODO @group_created_atの名前のディレクトリを作成する
       @video_path = "/#{@group_created_at}/#{@video.id}.mp4"
       @video.video_path = @video_path
       binding.pry
