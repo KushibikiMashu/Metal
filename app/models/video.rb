@@ -5,8 +5,4 @@ class Video < ApplicationRecord
 	def user
 		return User.find_by(id: self.user_id)
 	end
-
-	def fetch_groups_of_users
-		return Video.where(group_id: self.group_id)
-	end
 end
