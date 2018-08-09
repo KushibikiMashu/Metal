@@ -14,23 +14,31 @@
   </li>
 </ul>
 
+
 <% @groupUsers.each do |groupUser| %>
-  <div class="mx-0" style="width: 100px">グループ名: <%= groupUser.fetch_group.group_name %></div>
+<ul class="nav">
+<li>グループ名: <%= groupUser.fetch_group.group_name %></li>
+
 
 <%= form_tag("#", class: "ml-auto") do %>
-    <button class="btn btn-info" type="submit">申請中</button>
-    <% end %>
-<%= form_tag("#", class: "ml-5") do %>
+<button class="btn btn-info" type="submit">申請中</button>
+<% end %>
+
+<li>
+<%= form_tag("#", class: "ml-4") do %>
 <button class="btn btn-info" type="submit">参加中</button>
 <% end %>
+</li>
 
-<%= form_tag("#", class: "ml-5") do %>
+<li>
+<%= form_tag("#", class: "ml-4") do %>
 <button class="btn btn-info" type="submit">退会する</button>
 <% end %>
+</li>
+
+</ul>
 
 <% end %>
-
-
 
 </div>
 </div>
