@@ -2,15 +2,13 @@ class VideosController < ApplicationController
   include ApplicationHelper
 
   def index
-    # 動画を降順で並び替え
-    # TODO グループごとに表示する動画を取得
-    @videos = []
+    # グループごとに表示する動画を取得
     @groups_belong_to = GroupUser.where(user_id: @current_user.id)
-    # ここまでOK
+    @videos = []
+    
     @groups_belong_to.each do |group_belong_to|
-      @videos = Video.where(group_id: group_belong_to.group_id)
+      @videos << Video.find_by(group_id: group_belong_to.group_id)
     end
-
   end
 
   def new
