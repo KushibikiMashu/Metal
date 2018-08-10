@@ -14,9 +14,20 @@
   </li>
 </ul>
 
+<%= form_tag("/groups/search", class: "form-inline my-2 my-lg-0 floating-label") do %>
+<label>グループ名</label>
+<input class="form-control mr-sm-2" type="search" name="search" aria-label="Search">
+<button class="btn btn-light my-2 my-sm-0" type="submit">検索する</button>
+<% end %>
 
+
+<h4>全てのグループ</h4>
+
+
+
+<h4>参加しているグループ</h4>
 <% @groupUsers.each do |groupUser| %>
-<ul class="nav mb-2">
+<ul class="nav mb-2 mt-2">
 <li>グループ名: <%= groupUser.fetch_group.group_name %></li>
 
 

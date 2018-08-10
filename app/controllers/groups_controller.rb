@@ -20,7 +20,8 @@ class GroupsController < ApplicationController
       # グループメンバーテーブルにデータを保存
       @group_user = GroupUser.new(
           group_id: @group.id,
-          user_id: @current_user.id
+          user_id: @current_user.id,
+          status: 1
         )
       @group_user.save
 
@@ -41,7 +42,22 @@ class GroupsController < ApplicationController
   	end
   end
 
-  def show
+  def show 
+  end
+
+  def destroy
+    @group_id = params[:group_id]
+    @group = Group.find_by(group_id: @group_id)
+
+    # confirmで「本当に削除しますか？」と確認する
+    if @group.destroy
+      flash[:notice] = "グループを削除しました"
+      redirect_to("/groups")
+    else
+      flash[:notice] = "グループ削除ができませんでした"
+      redirect_to("/groups")
+    end
+
   end
 
   def search
@@ -52,4 +68,43 @@ class GroupsController < ApplicationController
     end
   end
 
+  def join
+    @group_id = params[:group_id]
+    @group_user = GroupUser.new(
+        group_id: @group_id,
+        user_id: @current_user.id,
+        status: 0
+      )
+
+    if @group_user.save
+      flash[:notice] = "参加申請が完了しました"
+      redirect_to("/groups")
+    else
+      flash[:notice] = "参加申請ができませんでした"
+      redirect_to("/groups")
+    end
+  end
+
+  def permit
+    @user_id = params[:user_id]
+    @groupUser = GroupUser.find_by(user_id: @user_id)
+    @groupUser.status = 1
+    @groupUser.save
+
+    redirect_to("#")
+  end
+
+  def withdraw
+    @user_id = params[:user_id]
+    @groupUser = GroupUser.find_by(user_id: @user_id)
+
+    # confirmで「本当に退会しますか？」と確認する
+    if @groupUser.destroy
+      flash[:notice] = "グループ退会が完了しました"
+      redirect_to("/groups")
+    else
+      flash[:notice] = "グループ退会ができませんでした"
+      redirect_to("/groups")
+    end
+  end
 end
