@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Share Movies</title>
+    <title>Groupy</title>
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
@@ -13,8 +13,8 @@
 
 <body style="padding-top: 3.5rem">
     <nav class="navbar navbar-expand-sm navbar-light bg-light navbar-default fixed-top">
-        <div class="container  col-lg-6 col-md-9">
-            <a class="navbar-brand" href="/">Share Movies</a>
+        <div class="container col-lg-6 col-md-8">
+            <a class="navbar-brand" href="/">Groupy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,25 +36,30 @@
                     <% else %>
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/index">ホーム</a>
+                                <a class="nav-link" href="/index" style="padding-top: 6px;">
+                                    <i class="material-icons" style="font-size:30px">home</i>
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/videos/new">投稿</a>
+                                <a class="nav-link" href="/videos/new" style="padding-top: 6px;">
+                                    <i class="material-icons" style="font-size:30px">videocam</i>
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/groups">グループ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout" data-method="post">ログアウト</a>
+                                <a class="nav-link" href="/groups" style="padding-top: 6px;">
+                                    <i class="material-icons" style="font-size:30px">group</i>
+                                </a>
                             </li>
                             <li class="nav-item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <a class="nav-link">aaa</a>
+                                <a class="nav-link" style="padding-top: 6px;">
+                                    <i class="material-icons" style="font-size:30px">account_circle</i>
+                                </a>
                             </li>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">Action</button>
-                                <button class="dropdown-item" type="button">Another action</button>
+                                <button class="dropdown-item" type="button">所属グループ</button>
                                 <div class="dropdown-divider"></div>
-                                <button class="dropdown-item" type="button">Something else here</button>
+                                <button class="dropdown-item" type="button">設定</button>
+                                <a class="dropdown-item" href="/logout" data-method="post">ログアウト</a>
                             </div>
                         </ul>
                         <% end %>
