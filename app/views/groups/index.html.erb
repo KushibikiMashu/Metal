@@ -27,11 +27,13 @@
     <% end %>
   </li>
 
+<% if groupUser.fetch_group.admin_user_id == @current_user.id %>
 <li>
 <%= form_tag("/groups/destroy", class: "ml-4") do %>
 <button class="btn btn-info" type="submit" name="group_id" value="<%= groupUser.group_id %>">削除する</button>
 <% end %>
 </li>
+<% end %>
 
 </ul>
 
