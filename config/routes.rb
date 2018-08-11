@@ -27,6 +27,14 @@ Rails.application.routes.draw do
   get "groups/create" => "groups#new"
   post "groups/search" => "groups#search"
   get "groups/search" => "groups#search"
+  post "groups/destroy" => "groups#destroy"
+  get "groups/destroy" => "groups#index"
+  post "groups/permit" => "groups#permit"
+  get "groups/permit" => "groups#index"
+  post "groups/join" => "groups#join"
+  get "groups/join" => "groups#index"
+  post "groups/withdraw" => "groups#withdraw"
+  get "groups/withdraw" => "groups#index"
 
   # homeコントローラー
   get "/" => "home#top"

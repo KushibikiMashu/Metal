@@ -26,15 +26,22 @@
 
 <ul class="nav nav-pills mb-2">
 
-    <li class="mr-auto">
-        <%= result.group_name %>
-    </li>
-    <li class="ml-auto">
-        <%= form_tag("#") do %>
-            <button class="btn btn-info" type="submit">申請する</button>
-            <% end %>
-    </li>
-    <br>
+<li class="mr-auto">
+<%= result.group_name %>
+</li>
+
+<%= form_tag("#", class: "ml-auto") do %>
+<button class="btn btn-info" type="submit">申請する</button>
+<% end %>
+
+<%= form_tag("#", class: "ml-auto") do %>
+<button class="btn btn-info" type="submit">申請中</button>
+<% end %>
+
+<%= form_tag("#", class: "ml-auto") do %>
+<button class="btn btn-info" type="submit">申請する</button>
+<% end %>
+
 </ul>
 
 <% end %>

@@ -14,42 +14,30 @@
   </li>
 </ul>
 
-<%= form_tag("/groups/search", class: "form-inline my-2 my-lg-0 floating-label") do %>
-<label>グループ名</label>
-<input class="form-control mr-sm-2" type="search" name="search" aria-label="Search">
-<button class="btn btn-light my-2 my-sm-0" type="submit">検索する</button>
-<% end %>
-
-
-<h4>全てのグループ</h4>
-
-
-
 <h4>参加しているグループ</h4>
+
 <% @groupUsers.each do |groupUser| %>
+<% if groupUser != nil %>
+
 <ul class="nav mb-2 mt-2">
-<li>グループ名: <%= groupUser.fetch_group.group_name %></li>
-
-
-<%= form_tag("#", class: "ml-auto") do %>
-<button class="btn btn-info" type="submit">申請中</button>
-<% end %>
-
-<li>
-<%= form_tag("#", class: "ml-4") do %>
-<button class="btn btn-info" type="submit">参加中</button>
-<% end %>
-</li>
+  <li>グループ名: <%= groupUser.fetch_group.group_name %></li>
+    
+    <%= form_tag("/groups/withdraw", class: "ml-auto") do %>
+      <button class="btn btn-info" type="submit" name="group_id" value="<%= groupUser.group_id %>">退会する</button>
+    <% end %>
+  </li>
 
 <li>
-<%= form_tag("#", class: "ml-4") do %>
-<button class="btn btn-info" type="submit">退会する</button>
+<%= form_tag("/groups/destroy", class: "ml-4") do %>
+<button class="btn btn-info" type="submit" name="group_id" value="<%= groupUser.group_id %>">削除する</button>
 <% end %>
 </li>
 
 </ul>
 
 <% end %>
+<% end %>
+
 
 </div>
 </div>

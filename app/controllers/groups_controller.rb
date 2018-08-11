@@ -47,9 +47,15 @@ class GroupsController < ApplicationController
 
   def destroy
     @group_id = params[:group_id]
-    @group = Group.find_by(group_id: @group_id)
+    @group = Group.find_by(id: @group_id)
+    @groupUser = GroupUser.find_by(group_id: @group_id)
 
     # confirmで「本当に削除しますか？」と確認する
+
+    if @groupUser.destroy
+      # ログを取る
+    end
+
     if @group.destroy
       flash[:notice] = "グループを削除しました"
       redirect_to("/groups")
@@ -95,8 +101,8 @@ class GroupsController < ApplicationController
   end
 
   def withdraw
-    @user_id = params[:user_id]
-    @groupUser = GroupUser.find_by(user_id: @user_id)
+    @group_id = params[:group_id]
+    @groupUser = GroupUser.find_by(group_id: @group_id)
 
     # confirmで「本当に退会しますか？」と確認する
     if @groupUser.destroy
