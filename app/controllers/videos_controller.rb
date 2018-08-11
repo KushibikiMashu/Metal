@@ -4,11 +4,31 @@ class VideosController < ApplicationController
   def index
     # グループごとに表示する動画を取得
     @groups_belong_to = GroupUser.where(user_id: @current_user.id)
-    @videos = []
+    @group_videos = []
     
+    # 各グループの動画を取り出す
     @groups_belong_to.each do |group_belong_to|
-      @videos << Video.find_by(group_id: group_belong_to.group_id)
+      # グループに動画がない場合は追加しない
+      if Video.find_by(group_id: group_belong_to.group_id) != nil
+        @group_videos << Video.where(group_id: group_belong_to.group_id)
+      end
     end
+
+    # 各グループの動画をひとつのオブジェクトに格納
+    num = @group_videos.length - 1
+    @videos = []
+    for i in 0..num
+      for @group_video in @group_videos[i] do
+        @videos << @group_video
+      end
+      ++i
+    end
+
+    # 作成日時の降順で並べ替え
+    @videos = @videos.sort { |a,b|
+      b.created_at <=> a.created_at
+    }
+
   end
 
   def new
