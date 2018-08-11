@@ -22,25 +22,31 @@
 <% end %>
 
 
-<% @results.each do |result| %>
+<% @groups.each do |group| %>
 
 <ul class="nav nav-pills mb-2">
 
 <li class="mr-auto">
-<%= result.group_name %>
+<%= group.group_name %>
 </li>
 
-<%= form_tag("#", class: "ml-auto") do %>
-<button class="btn btn-info" type="submit">申請する</button>
+<% if group.fetch_group_user.status == 0 %>
+
+<button class="btn btn-info ml-auto">申請中</button>
+
+<% elsif group.fetch_group_user.status == 1 %>
+
+<button class="btn btn-info ml-auto">参加中</button>
+
+
+<% else %>
+
+<%= form_tag("/groups/join", class: "ml-auto") do %>
+<button class="btn btn-info" type="submit" name="group_id" value="<%= group.id %>">申請する</button>
 <% end %>
 
-<%= form_tag("#", class: "ml-auto") do %>
-<button class="btn btn-info" type="submit">申請中</button>
 <% end %>
 
-<%= form_tag("#", class: "ml-auto") do %>
-<button class="btn btn-info" type="submit">申請する</button>
-<% end %>
 
 </ul>
 

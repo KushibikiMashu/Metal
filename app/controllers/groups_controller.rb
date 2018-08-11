@@ -67,9 +67,9 @@ class GroupsController < ApplicationController
   end
 
   def search
-    @results = Group.search(params[:search])
+    @groups = Group.search(params[:search])
 
-    if @results == []
+    if @groups == []
       @error_message = "検索結果はありません"
     end
   end
